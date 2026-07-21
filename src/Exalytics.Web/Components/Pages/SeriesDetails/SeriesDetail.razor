@@ -1,0 +1,314 @@
+@page "/series/{Slug}"
+
+<PageTitle>@Model.Title — Exalytics Series</PageTitle>
+
+<div class="series-detail-page">
+    <section class="series-detail-hero">
+        <div class="series-detail-shell">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/series">Series</a>
+                <span>/</span>
+                <strong>@Model.Category</strong>
+            </nav>
+
+            <div class="hero-grid">
+                <div>
+                    <p class="series-eyebrow">Series detail</p>
+                    <h1>@Model.Title</h1>
+                    <p>@Model.Summary</p>
+                    <div class="series-meta">
+                        <span class="live">@Model.Status</span>
+                        <span>Frequency: @Model.Frequency</span>
+                        <span>Unit: @Model.Unit</span>
+                        <span>Last DB refresh: @Model.LastRefresh</span>
+                    </div>
+                </div>
+
+                <aside class="source-card">
+                    <h2>Source and database shape</h2>
+                    <p>
+                        This page is designed for `Series`/`Indicators` + `Observations` rows from
+                        Azure SQL. The public UI should render the latest approved database snapshot.
+                    </p>
+                    <span>@Model.Source</span>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="series-detail-shell series-filter-card">
+        <div>
+            <span>Date range</span>
+            <strong>2015 — 2026</strong>
+        </div>
+        <div>
+            <span>View</span>
+            <strong>Trend + bars</strong>
+        </div>
+        <div>
+            <span>Transformation</span>
+            <strong>@Model.Transform</strong>
+        </div>
+        <div>
+            <span>Data table</span>
+            <strong>Latest 12 observations</strong>
+        </div>
+    </section>
+
+    <section class="series-detail-shell metric-grid">
+        @foreach (var metric in Model.Metrics)
+        {
+            <article class="metric-card @metric.Tone">
+                <span>@metric.Label</span>
+                <strong>@metric.Value</strong>
+                <small>@metric.Meta</small>
+            </article>
+        }
+    </section>
+
+    <section class="series-detail-shell dashboard-grid">
+        <article class="chart-card">
+            <header>
+                <h2>@Model.ChartTitle</h2>
+                <p>@Model.ChartSubtitle</p>
+            </header>
+
+            <svg viewBox="0 0 760 420" role="img" aria-label="@Model.Title chart">
+                <g class="grid-lines">
+                    <line x1="18" y1="78" x2="742" y2="78" />
+                    <line x1="18" y1="158" x2="742" y2="158" />
+                    <line x1="18" y1="238" x2="742" y2="238" />
+                    <line x1="18" y1="318" x2="742" y2="318" />
+                </g>
+                <g class="bar-series">
+                    <rect x="52" y="278" width="24" height="80" />
+                    <rect x="128" y="246" width="24" height="112" />
+                    <rect x="204" y="212" width="24" height="146" />
+                    <rect x="280" y="178" width="24" height="180" />
+                    <rect x="356" y="142" width="24" height="216" />
+                    <rect x="432" y="176" width="24" height="182" />
+                    <rect x="508" y="218" width="24" height="140" />
+                    <rect x="584" y="240" width="24" height="118" />
+                    <rect x="660" y="232" width="24" height="126" />
+                </g>
+                <polyline class="trend-line" points="38,250 114,232 190,188 266,126 342,82 418,122 494,178 570,206 646,198 724,218" />
+            </svg>
+
+            <div class="legend">
+                <span><i class="line"></i>Trend</span>
+                <span><i class="bars"></i>Observation bars</span>
+            </div>
+        </article>
+
+        <aside class="observations-card">
+            <h2>Latest observations</h2>
+            <div class="observation-list">
+                @foreach (var observation in Model.Observations)
+                {
+                    <div>
+                        <span>@observation.Period</span>
+                        <strong>@observation.Value</strong>
+                    </div>
+                }
+            </div>
+        </aside>
+    </section>
+
+    <AccessPreviewGate
+        ContentKind="series"
+        ContentName="@Model.Title"
+        ContentSlug="@Model.Slug"
+        LockedTitle="@($"Sign in to read the complete {Model.Title}")"
+        LockedMessage="Guests can preview the headline metrics and trend chart. A free account unlocks the full series explanation, source context, and five topic or series reads every month."
+        LockedItems="SeriesLockedItems">
+        <section class="series-detail-shell explanation-grid">
+            <article class="explanation-card">
+                <p class="series-eyebrow">Trend explanation</p>
+                <h2>@Model.ExplanationTitle</h2>
+                <p>@Model.Explanation</p>
+            </article>
+
+            <article class="explanation-card muted-card">
+                <p class="series-eyebrow">How this differs from topics</p>
+                <h2>Series pages stay lightweight</h2>
+                <p>
+                    Series detail pages focus on one indicator, a compact chart, latest observations,
+                    source notes, and trend explanation. Full topic pages combine multiple indicators,
+                    filters, widgets, methodology, and AI analyst-note timelines.
+                </p>
+            </article>
+        </section>
+    </AccessPreviewGate>
+</div>
+
+@code {
+    [Parameter]
+    public string? Slug { get; set; }
+
+    private SeriesModel Model => GetSeriesModel(Slug);
+
+    private static SeriesModel GetSeriesModel(string? slug)
+    {
+        return slug switch
+        {
+            "jolts-job-openings" => new(
+                "jolts-job-openings",
+                "JOLTS Job Openings",
+                "Labor",
+                "Preview",
+                "Monthly",
+                "Millions",
+                "BLS JOLTS",
+                "Level",
+                "30 May 2026",
+                "Labor demand is normalizing from post-pandemic highs. Use this page for the quick trend before opening a larger labor-market topic.",
+                "Job openings trend and monthly bars",
+                "Filtered by monthly level • seasonally adjusted",
+                "Openings continue to ease",
+                "The series suggests labor demand has cooled, but remains elevated enough to keep the labor market from looking recessionary.",
+                LaborMetrics,
+                LaborObservations),
+            "unemployment-rate" => new(
+                "unemployment-rate",
+                "Unemployment Rate",
+                "Labor",
+                "Live Data",
+                "Monthly",
+                "Percent",
+                "BLS",
+                "Rate",
+                "30 May 2026",
+                "Track the unemployment rate as a compact series with trend and recent observation bars.",
+                "Unemployment rate trend",
+                "Filtered by monthly rate • percent",
+                "Unemployment remains contained",
+                "The rate has moved gradually, making it useful as a simple cycle signal alongside richer labor-market topics.",
+                RateMetrics,
+                RateObservations),
+            "ten-year-treasury-yield" => new(
+                "ten-year-treasury-yield",
+                "10-Year Treasury Yield",
+                "Rates",
+                "Preview",
+                "Daily",
+                "Percent",
+                "FRED / Treasury",
+                "Yield",
+                "30 May 2026",
+                "Follow long-rate movement with a lightweight chart and recent observation list.",
+                "10-year yield trend",
+                "Filtered by daily yield • percent",
+                "Long yields remain macro-sensitive",
+                "The yield remains responsive to inflation expectations, policy outlook, issuance, and risk appetite.",
+                YieldMetrics,
+                YieldObservations),
+            "brent-crude-oil" => new(
+                "brent-crude-oil",
+                "Brent Crude Oil",
+                "Energy",
+                "Preview",
+                "Daily",
+                "USD per barrel",
+                "Energy source feed",
+                "Price",
+                "30 May 2026",
+                "Track oil price direction with a quick series chart useful for inflation and trade context.",
+                "Brent crude price trend",
+                "Filtered by daily price • USD/barrel",
+                "Energy prices remain range-bound",
+                "Oil has moved in a wide range, keeping energy pass-through relevant for inflation analysis.",
+                OilMetrics,
+                OilObservations),
+            "usd-inr-exchange-rate" => new(
+                "usd-inr-exchange-rate",
+                "USD / INR Exchange Rate",
+                "FX",
+                "Planned",
+                "Daily",
+                "INR per USD",
+                "FX source feed",
+                "Exchange rate",
+                "30 May 2026",
+                "A compact currency series for tracking rupee movement against the dollar.",
+                "USD/INR trend",
+                "Filtered by daily exchange rate",
+                "Rupee trend stays gradual",
+                "The exchange rate trend is designed to pair with BoP and reserves topics without overloading those topic pages.",
+                FxMetrics,
+                FxObservations),
+            _ => new(
+                "inflation-cpi",
+                "Inflation CPI Series",
+                "Inflation",
+                "Live Data",
+                "Monthly",
+                "Percent YoY",
+                "CPI source feed",
+                "YoY percent change",
+                "30 May 2026",
+                "Consumer price inflation has cooled from peak levels, but the last mile remains uneven. Use this page for a quick chart-first read.",
+                "CPI trend and monthly bars",
+                "Filtered by monthly CPI • YoY percent change",
+                "Inflation cooled, but the last mile is sticky",
+                "The latest CPI series shows disinflation from peak levels while remaining above the comfort zone. The trend is useful as a quick signal before opening broader inflation topics.",
+                CpiMetrics,
+                CpiObservations)
+        };
+    }
+
+    private static readonly SeriesMetric[] CpiMetrics =
+    [
+        new("Latest", "4.8%", "YoY CPI", "blue"),
+        new("Momentum", "+0.2pp", "Latest monthly move", "orange"),
+        new("Frequency", "Monthly", "Database refresh", "green")
+    ];
+
+    private static readonly SeriesObservation[] CpiObservations =
+    [
+        new("May 2026", "4.8%"),
+        new("Apr 2026", "4.7%"),
+        new("Mar 2026", "4.9%"),
+        new("Feb 2026", "5.0%"),
+        new("Jan 2026", "5.2%")
+    ];
+
+    private static readonly SeriesMetric[] LaborMetrics = [new("Latest", "8.1M", "Openings", "orange"), new("Momentum", "-0.3M", "Monthly change", "blue"), new("Frequency", "Monthly", "Database refresh", "green")];
+    private static readonly SeriesObservation[] LaborObservations = [new("May 2026", "8.1M"), new("Apr 2026", "8.4M"), new("Mar 2026", "8.5M"), new("Feb 2026", "8.7M"), new("Jan 2026", "8.9M")];
+    private static readonly SeriesMetric[] RateMetrics = [new("Latest", "4.1%", "Unemployment", "green"), new("Momentum", "+0.1pp", "Monthly change", "orange"), new("Frequency", "Monthly", "Database refresh", "blue")];
+    private static readonly SeriesObservation[] RateObservations = [new("May 2026", "4.1%"), new("Apr 2026", "4.0%"), new("Mar 2026", "4.0%"), new("Feb 2026", "3.9%"), new("Jan 2026", "3.9%")];
+    private static readonly SeriesMetric[] YieldMetrics = [new("Latest", "4.3%", "10Y yield", "violet"), new("Momentum", "+18bp", "Weekly move", "orange"), new("Frequency", "Daily", "Database refresh", "blue")];
+    private static readonly SeriesObservation[] YieldObservations = [new("30 May 2026", "4.3%"), new("29 May 2026", "4.2%"), new("28 May 2026", "4.2%"), new("27 May 2026", "4.1%"), new("26 May 2026", "4.1%")];
+    private static readonly SeriesMetric[] OilMetrics = [new("Latest", "$82", "USD/barrel", "red"), new("Momentum", "+$3", "Weekly move", "orange"), new("Frequency", "Daily", "Database refresh", "blue")];
+    private static readonly SeriesObservation[] OilObservations = [new("30 May 2026", "$82"), new("29 May 2026", "$80"), new("28 May 2026", "$79"), new("27 May 2026", "$81"), new("26 May 2026", "$78")];
+    private static readonly SeriesMetric[] FxMetrics = [new("Latest", "₹83.4", "INR per USD", "green"), new("Momentum", "+0.2", "Weekly move", "orange"), new("Frequency", "Daily", "Database refresh", "blue")];
+    private static readonly SeriesObservation[] FxObservations = [new("30 May 2026", "₹83.4"), new("29 May 2026", "₹83.2"), new("28 May 2026", "₹83.1"), new("27 May 2026", "₹83.3"), new("26 May 2026", "₹83.0")];
+
+    private static readonly string[] SeriesLockedItems =
+    [
+        "Complete trend explanation and source context",
+        "Future export/reuse metadata for journalists and analysts",
+        "Monthly free-read tracking across topic and series detail pages",
+        "Five free topic or series detail reads each month"
+    ];
+
+    private sealed record SeriesModel(
+        string Slug,
+        string Title,
+        string Category,
+        string Status,
+        string Frequency,
+        string Unit,
+        string Source,
+        string Transform,
+        string LastRefresh,
+        string Summary,
+        string ChartTitle,
+        string ChartSubtitle,
+        string ExplanationTitle,
+        string Explanation,
+        SeriesMetric[] Metrics,
+        SeriesObservation[] Observations);
+
+    private sealed record SeriesMetric(string Label, string Value, string Meta, string Tone);
+    private sealed record SeriesObservation(string Period, string Value);
+}

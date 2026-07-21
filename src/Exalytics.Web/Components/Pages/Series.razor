@@ -1,0 +1,202 @@
+@page "/series"
+
+<PageTitle>Series — Exalytics</PageTitle>
+
+<div class="series-page">
+    <section class="series-hero">
+        <div class="series-shell">
+            <p class="series-eyebrow">Series library</p>
+            <div class="hero-grid">
+                <div>
+                    <h1>Quick charts for economic series</h1>
+                    <p>
+                        Follow individual data series with lightweight trend charts, bars, recent
+                        values, and source notes. Use Series when you need the shape of a dataset
+                        before opening a full topic dashboard.
+                    </p>
+                </div>
+
+                <div class="hero-summary-card">
+                    <span>Series vs Topics</span>
+                    <strong>Series are chart-first. Topics are analysis-first.</strong>
+                    <p>
+                        A series focuses on one dataset like CPI, JOLTS, yields, or oil prices.
+                        A topic combines many series, explanations, methodology, and analyst notes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="series-toolbar">
+                <div class="series-search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                    </svg>
+                    <span>Search CPI, JOLTS, unemployment, yields, oil, currency...</span>
+                </div>
+
+                <a class="toolbar-button" href="/collaborate">Suggest a series</a>
+            </div>
+
+            <div class="series-chips" aria-label="Series categories">
+                <span class="active">All</span>
+                <span>Inflation</span>
+                <span>Labor</span>
+                <span>Rates</span>
+                <span>Energy</span>
+                <span>FX</span>
+                <span>India</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="series-shell featured-series">
+        <a href="/series/inflation-cpi" class="spotlight-card">
+            <div class="spotlight-copy">
+                <p class="series-eyebrow">Featured trend</p>
+                <h2>Inflation CPI Series</h2>
+                <p>
+                    Consumer price inflation has cooled from peak levels, but the last mile remains
+                    uneven. Track yearly CPI changes with a simple line and monthly bar context.
+                </p>
+
+                <dl class="series-metrics">
+                    <div>
+                        <dt>4.8%</dt>
+                        <dd>Latest CPI YoY</dd>
+                    </div>
+                    <div>
+                        <dt>Monthly</dt>
+                        <dd>Frequency</dd>
+                    </div>
+                    <div>
+                        <dt>2026</dt>
+                        <dd>Latest year</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="spotlight-chart">
+                <svg viewBox="0 0 520 260" role="img" aria-label="CPI inflation trend line and monthly bars">
+                    <g class="chart-grid">
+                        <line x1="0" y1="40" x2="520" y2="40" />
+                        <line x1="0" y1="105" x2="520" y2="105" />
+                        <line x1="0" y1="170" x2="520" y2="170" />
+                        <line x1="0" y1="235" x2="520" y2="235" />
+                    </g>
+                    <g class="bar-series">
+                        <rect x="24" y="145" width="22" height="90" />
+                        <rect x="70" y="132" width="22" height="103" />
+                        <rect x="116" y="118" width="22" height="117" />
+                        <rect x="162" y="104" width="22" height="131" />
+                        <rect x="208" y="92" width="22" height="143" />
+                        <rect x="254" y="110" width="22" height="125" />
+                        <rect x="300" y="126" width="22" height="109" />
+                        <rect x="346" y="138" width="22" height="97" />
+                        <rect x="392" y="150" width="22" height="85" />
+                        <rect x="438" y="143" width="22" height="92" />
+                    </g>
+                    <polyline class="trend-line" points="20,82 72,76 124,68 176,58 228,72 280,96 332,118 384,132 436,128 500,136" />
+                </svg>
+                <div class="chart-caption">
+                    <span>Peak easing</span>
+                    <span>Last mile sticky</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <section class="series-shell series-grid-section">
+        <div class="section-heading">
+            <p class="series-eyebrow">Browse series</p>
+            <h2>Chart-first economic indicators</h2>
+            <p>Each card gives a quick trend view without the full topic narrative.</p>
+        </div>
+
+        <div class="series-grid">
+            <a href="/series/inflation-cpi" class="series-card blue">
+                <div class="card-topline">
+                    <span>Inflation • Monthly</span>
+                    <strong>Live</strong>
+                </div>
+                <h3>Inflation CPI Series</h3>
+                <p class="latest-value">4.8% YoY</p>
+                <p class="series-note">Cooling from highs, still above target comfort.</p>
+                <svg viewBox="0 0 260 90" aria-hidden="true">
+                    <polyline points="0,26 38,22 76,18 114,36 152,50 190,58 228,55 260,62"></polyline>
+                    <g><rect x="5" y="58" width="18" height="24" /><rect x="45" y="52" width="18" height="30" /><rect x="85" y="48" width="18" height="34" /><rect x="125" y="56" width="18" height="26" /><rect x="165" y="63" width="18" height="19" /><rect x="205" y="60" width="18" height="22" /></g>
+                </svg>
+            </a>
+
+            <a href="/series/jolts-job-openings" class="series-card orange">
+                <div class="card-topline">
+                    <span>Labor • Monthly</span>
+                    <strong>Preview</strong>
+                </div>
+                <h3>JOLTS Job Openings</h3>
+                <p class="latest-value">8.1M openings</p>
+                <p class="series-note">Labor demand normalizing from post-pandemic highs.</p>
+                <svg viewBox="0 0 260 90" aria-hidden="true">
+                    <polyline points="0,18 38,22 76,30 114,42 152,48 190,54 228,57 260,61"></polyline>
+                    <g><rect x="5" y="34" width="18" height="48" /><rect x="45" y="40" width="18" height="42" /><rect x="85" y="45" width="18" height="37" /><rect x="125" y="52" width="18" height="30" /><rect x="165" y="57" width="18" height="25" /><rect x="205" y="60" width="18" height="22" /></g>
+                </svg>
+            </a>
+
+            <a href="/series/unemployment-rate" class="series-card green">
+                <div class="card-topline">
+                    <span>Labor • Monthly</span>
+                    <strong>Live</strong>
+                </div>
+                <h3>Unemployment Rate</h3>
+                <p class="latest-value">4.1%</p>
+                <p class="series-note">Stable but watched closely for early cycle weakness.</p>
+                <svg viewBox="0 0 260 90" aria-hidden="true">
+                    <polyline points="0,55 38,57 76,54 114,52 152,51 190,49 228,50 260,48"></polyline>
+                    <g><rect x="5" y="62" width="18" height="20" /><rect x="45" y="64" width="18" height="18" /><rect x="85" y="61" width="18" height="21" /><rect x="125" y="59" width="18" height="23" /><rect x="165" y="58" width="18" height="24" /><rect x="205" y="56" width="18" height="26" /></g>
+                </svg>
+            </a>
+
+            <a href="/series/ten-year-treasury-yield" class="series-card violet">
+                <div class="card-topline">
+                    <span>Rates • Daily</span>
+                    <strong>Preview</strong>
+                </div>
+                <h3>10-Year Treasury Yield</h3>
+                <p class="latest-value">4.3%</p>
+                <p class="series-note">Long yields remain sensitive to inflation and issuance.</p>
+                <svg viewBox="0 0 260 90" aria-hidden="true">
+                    <polyline points="0,64 38,50 76,58 114,38 152,44 190,30 228,42 260,36"></polyline>
+                    <g><rect x="5" y="62" width="18" height="20" /><rect x="45" y="54" width="18" height="28" /><rect x="85" y="60" width="18" height="22" /><rect x="125" y="48" width="18" height="34" /><rect x="165" y="50" width="18" height="32" /><rect x="205" y="42" width="18" height="40" /></g>
+                </svg>
+            </a>
+
+            <a href="/series/brent-crude-oil" class="series-card red">
+                <div class="card-topline">
+                    <span>Energy • Daily</span>
+                    <strong>Preview</strong>
+                </div>
+                <h3>Brent Crude Oil</h3>
+                <p class="latest-value">$82/bbl</p>
+                <p class="series-note">Energy prices moving in a wide macro-sensitive range.</p>
+                <svg viewBox="0 0 260 90" aria-hidden="true">
+                    <polyline points="0,62 38,44 76,52 114,34 152,46 190,40 228,30 260,38"></polyline>
+                    <g><rect x="5" y="66" width="18" height="16" /><rect x="45" y="52" width="18" height="30" /><rect x="85" y="57" width="18" height="25" /><rect x="125" y="45" width="18" height="37" /><rect x="165" y="53" width="18" height="29" /><rect x="205" y="46" width="18" height="36" /></g>
+                </svg>
+            </a>
+
+            <a href="/series/usd-inr-exchange-rate" class="series-card teal">
+                <div class="card-topline">
+                    <span>FX • Daily</span>
+                    <strong>Planned</strong>
+                </div>
+                <h3>USD / INR Exchange Rate</h3>
+                <p class="latest-value">₹83.4</p>
+                <p class="series-note">Currency trend with volatility bars and policy context.</p>
+                <svg viewBox="0 0 260 90" aria-hidden="true">
+                    <polyline points="0,70 38,64 76,58 114,54 152,48 190,44 228,38 260,36"></polyline>
+                    <g><rect x="5" y="72" width="18" height="10" /><rect x="45" y="68" width="18" height="14" /><rect x="85" y="64" width="18" height="18" /><rect x="125" y="60" width="18" height="22" /><rect x="165" y="56" width="18" height="26" /><rect x="205" y="52" width="18" height="30" /></g>
+                </svg>
+            </a>
+        </div>
+    </section>
+</div>

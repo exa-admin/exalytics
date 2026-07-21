@@ -1,0 +1,443 @@
+.collaborate-page {
+    min-height: 100%;
+    background: #f8fbff;
+}
+
+.collab-shell {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.collab-hero {
+    padding: 64px 0 58px;
+    background: linear-gradient(160deg, #f3f9ff 0%, #eaf3fd 100%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+    gap: 48px;
+    align-items: center;
+}
+
+.collab-eyebrow {
+    margin: 0 0 12px;
+    color: #169df2;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.collab-eyebrow.light {
+    color: #c8edff;
+}
+
+.hero-copy h1 {
+    max-width: 760px;
+    margin: 0 0 18px;
+    color: var(--color-navy);
+    font-size: clamp(38px, 4.2vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.hero-copy > p {
+    max-width: 720px;
+    margin: 0;
+    color: #5d6b82;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.hero-card {
+    padding: 30px;
+    border: 1px solid #dceaf6;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 18px 40px -28px rgba(23, 55, 94, 0.45);
+}
+
+.hero-card span {
+    display: block;
+    margin-bottom: 18px;
+    color: #169df2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero-card ul {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-card li {
+    display: flex;
+    gap: 12px;
+    color: #45556c;
+    font-size: 14.5px;
+    line-height: 1.45;
+}
+
+.hero-card li::before {
+    color: #16b87f;
+    content: "✓";
+    font-weight: 900;
+}
+
+.pathways-section {
+    padding-top: 66px;
+    padding-bottom: 70px;
+}
+
+.section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: var(--color-navy);
+    font-size: clamp(30px, 3vw, 42px);
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+}
+
+.section-heading > p:not(.collab-eyebrow) {
+    margin: 0;
+    color: #5d6b82;
+    font-size: 16px;
+    line-height: 1.58;
+}
+
+.pathway-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.pathway-card {
+    min-height: 260px;
+    padding: 26px 24px;
+    border: 1px solid #e9f0f8;
+    border-top: 4px solid currentColor;
+    border-radius: 18px;
+    color: var(--path-accent, #169df2);
+    background: #ffffff;
+    box-shadow: 0 6px 18px -12px rgba(23, 55, 94, 0.2);
+}
+
+.pathway-card.blue {
+    --path-accent: #169df2;
+}
+
+.pathway-card.orange {
+    --path-accent: #f5a623;
+}
+
+.pathway-card.green {
+    --path-accent: #16b87f;
+}
+
+.path-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    color: #ffffff;
+    background: var(--path-accent);
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.pathway-card h3 {
+    margin: 0 0 12px;
+    color: var(--color-navy);
+    font-size: 22px;
+    line-height: 1.2;
+}
+
+.pathway-card p {
+    min-height: 76px;
+    margin: 0 0 18px;
+    color: #687891;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.pathway-card strong {
+    display: block;
+    color: var(--path-accent);
+    font-size: 13px;
+}
+
+.collab-band {
+    padding: 58px 0;
+    color: #ffffff;
+    background: linear-gradient(105deg, #1266c5 0%, #11aaf1 100%);
+}
+
+.workflow-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(520px, 1.1fr);
+    gap: 58px;
+    align-items: center;
+}
+
+.workflow-grid h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(32px, 3vw, 42px);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+}
+
+.workflow-grid > div > p:not(.collab-eyebrow) {
+    max-width: 520px;
+    margin: 18px 0 0;
+    color: #e8f6ff;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.workflow-steps {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.workflow-steps li {
+    display: flex;
+    gap: 14px;
+    min-height: 132px;
+    padding: 22px 18px;
+    border: 1px solid rgba(220, 229, 239, 0.9);
+    border-radius: 15px;
+    color: var(--color-navy);
+    background: #ffffff;
+}
+
+.workflow-steps li > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 50%;
+    color: #ffffff;
+    background: var(--color-primary);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.workflow-steps li:nth-child(2) > span {
+    background: var(--color-orange);
+}
+
+.workflow-steps li:nth-child(3) > span {
+    background: var(--color-green);
+}
+
+.workflow-steps li:nth-child(4) > span {
+    background: var(--color-violet);
+}
+
+.workflow-steps h3 {
+    margin: 0;
+    color: var(--color-navy);
+    font-size: 16px;
+}
+
+.workflow-steps p {
+    margin: 8px 0 0;
+    color: var(--color-muted);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.proposal-section {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.82fr) minmax(420px, 1.18fr);
+    gap: 38px;
+    align-items: start;
+    padding-top: 68px;
+    padding-bottom: 74px;
+}
+
+.proposal-copy h2 {
+    margin: 0 0 14px;
+    color: var(--color-navy);
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: 1.16;
+    letter-spacing: -0.025em;
+}
+
+.proposal-copy > p {
+    margin: 0;
+    color: #5d6b82;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.reuse-note {
+    margin-top: 28px;
+    padding: 22px;
+    border: 1px solid #dceaf6;
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.reuse-note h3 {
+    margin: 0 0 8px;
+    color: var(--color-navy);
+    font-size: 17px;
+}
+
+.reuse-note p {
+    margin: 0;
+    color: #687891;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.proposal-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 26px;
+    border: 1px solid #e6eef6;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 16px 40px -30px rgba(23, 55, 94, 0.4);
+}
+
+.proposal-form label {
+    display: grid;
+    gap: 8px;
+    color: var(--color-navy);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.proposal-form label.full {
+    grid-column: 1 / -1;
+}
+
+.proposal-form input,
+.proposal-form select,
+.proposal-form textarea {
+    width: 100%;
+    border: 1px solid #dceaf6;
+    border-radius: 12px;
+    color: var(--color-navy);
+    background: #f8fbff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.proposal-form input,
+.proposal-form select {
+    min-height: 48px;
+    padding: 0 14px;
+}
+
+.proposal-form textarea {
+    min-height: 150px;
+    padding: 14px;
+    resize: vertical;
+}
+
+.proposal-form input:focus,
+.proposal-form select:focus,
+.proposal-form textarea:focus {
+    outline: 3px solid rgba(22, 157, 242, 0.15);
+    border-color: #169df2;
+}
+
+.proposal-form button {
+    min-height: 50px;
+    border-radius: 12px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #169df2, #1387e6);
+    box-shadow: 0 8px 18px rgba(22, 157, 242, 0.28);
+    font-size: 14.5px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.form-note {
+    align-self: center;
+    margin: 0;
+    color: #8c98aa;
+    font-size: 12.5px;
+    line-height: 1.45;
+}
+
+@media (max-width: 1040px) {
+    .hero-grid,
+    .section-heading,
+    .workflow-grid,
+    .proposal-section {
+        grid-template-columns: 1fr;
+    }
+
+    .pathway-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .collab-shell {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .hero-actions,
+    .workflow-steps,
+    .proposal-form {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .primary-button,
+    .hero-actions .secondary-button {
+        width: 100%;
+    }
+
+    .workflow-steps {
+        display: grid;
+    }
+
+    .proposal-form label,
+    .proposal-form label.full {
+        grid-column: auto;
+    }
+}

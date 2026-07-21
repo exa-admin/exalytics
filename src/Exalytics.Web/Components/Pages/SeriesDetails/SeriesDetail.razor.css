@@ -1,0 +1,346 @@
+.series-detail-page {
+    min-height: 100%;
+    padding-bottom: 72px;
+    background: #f8fbff;
+}
+
+.series-detail-shell {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.series-detail-hero {
+    padding: 38px 0 54px;
+    background: linear-gradient(160deg, #f3f9ff 0%, #eaf3fd 100%);
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 26px;
+    color: #62718a;
+    font-size: 13.5px;
+    font-weight: 800;
+}
+
+.breadcrumb a,
+.breadcrumb strong {
+    color: #169df2;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
+    gap: 42px;
+    align-items: start;
+}
+
+.series-eyebrow {
+    margin: 0 0 12px;
+    color: #169df2;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.series-detail-hero h1 {
+    max-width: 760px;
+    margin: 0 0 16px;
+    color: #17375e;
+    font-size: clamp(38px, 4.2vw, 54px);
+    font-weight: 900;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+}
+
+.series-detail-hero p {
+    max-width: 720px;
+    margin: 0;
+    color: #5d6b82;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.series-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.series-meta span,
+.source-card span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 14px;
+    border-radius: 18px;
+    color: #62718a;
+    background: #ffffff;
+    font-size: 12.5px;
+    font-weight: 800;
+}
+
+.series-meta .live {
+    color: #1f9d63;
+    background: #d9f3e5;
+}
+
+.source-card,
+.series-filter-card,
+.metric-card,
+.chart-card,
+.observations-card,
+.explanation-card {
+    border: 1px solid #e1ebf6;
+    border-radius: 18px;
+    background: #ffffff;
+}
+
+.source-card {
+    padding: 24px;
+}
+
+.source-card h2 {
+    margin: 0 0 10px;
+    color: #17375e;
+    font-size: 18px;
+}
+
+.source-card p {
+    margin: 0 0 16px;
+    color: #687891;
+    font-size: 13.5px;
+    line-height: 1.55;
+}
+
+.series-filter-card {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: -28px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.series-filter-card div {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: #f8fbff;
+}
+
+.series-filter-card span {
+    display: block;
+    margin-bottom: 6px;
+    color: #8c98aa;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.series-filter-card strong {
+    color: #17375e;
+    font-size: 14px;
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 30px;
+}
+
+.metric-card {
+    padding: 22px;
+    border-top: 4px solid var(--metric-color);
+}
+
+.metric-card.blue { --metric-color: #169df2; }
+.metric-card.orange { --metric-color: #f5a623; }
+.metric-card.green { --metric-color: #16b87f; }
+.metric-card.violet { --metric-color: #8b5cf6; }
+.metric-card.red { --metric-color: #ef4444; }
+
+.metric-card span,
+.metric-card small {
+    display: block;
+    color: #687891;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.metric-card strong {
+    display: block;
+    margin-top: 10px;
+    color: #17375e;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.metric-card small {
+    margin-top: 10px;
+    color: #8c98aa;
+    text-transform: none;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 0.7fr);
+    gap: 24px;
+    padding-top: 28px;
+}
+
+.chart-card,
+.observations-card {
+    padding: 30px;
+}
+
+.chart-card h2,
+.observations-card h2,
+.explanation-card h2 {
+    margin: 0;
+    color: #17375e;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+
+.chart-card header p {
+    margin: 8px 0 28px;
+    color: #9aa6b8;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.chart-card svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.grid-lines line {
+    stroke: #edf2f7;
+    stroke-width: 1.4;
+}
+
+.bar-series rect {
+    fill: rgba(22, 157, 242, 0.16);
+    rx: 7;
+}
+
+.trend-line {
+    fill: none;
+    stroke: #169df2;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 16px;
+    color: #687891;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.legend i {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend .line { background: #169df2; }
+.legend .bars { background: rgba(22, 157, 242, 0.25); }
+
+.observation-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.observation-list div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid #e8eef6;
+    border-radius: 12px;
+    background: #f8fbff;
+}
+
+.observation-list span {
+    color: #687891;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.observation-list strong {
+    color: #17375e;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.explanation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 28px;
+}
+
+.explanation-card {
+    padding: 30px;
+}
+
+.explanation-card p:not(.series-eyebrow) {
+    color: #5d6b82;
+    font-size: 16px;
+    line-height: 1.62;
+}
+
+.muted-card {
+    background: #fdfefe;
+}
+
+@media (max-width: 980px) {
+    .hero-grid,
+    .series-filter-card,
+    .dashboard-grid,
+    .explanation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .series-detail-shell {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .metric-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card,
+    .observations-card,
+    .explanation-card {
+        padding: 22px;
+    }
+}

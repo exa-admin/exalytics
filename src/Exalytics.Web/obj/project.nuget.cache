@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nD+zlfh1LAY=",
+  "success": true,
+  "projectFilePath": "/Users/admin.gautham.katta/Library/Mobile Documents/com~apple~CloudDocs/MyRepo/Codex/exalytics/src/Exalytics.Web/Exalytics.Web.csproj",
+  "expectedPackageFiles": [
+    "/Users/admin.gautham.katta/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.2/microsoft.aspnetcore.app.internal.assets.10.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

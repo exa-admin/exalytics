@@ -1,0 +1,281 @@
+@page "/"
+
+<PageTitle>Exalytics — Global economic data, analyzed and visualized</PageTitle>
+
+<div class="home-page">
+    <section class="hero-section">
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <h1>
+                    Global<br />
+                    Economic<br />
+                    Data,<br />
+                    <span>Analyzed &amp;<br />Visualized</span>
+                </h1>
+                <p>
+                    Interactive dashboards and expert analysis on trade, fiscal policy, and
+                    macroeconomic trends. Built for data enthusiasts.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="primary-button" href="/topics">Explore Free Topics</a>
+                    <a class="secondary-button" href="/series">View Series</a>
+                </div>
+
+                <dl class="hero-stats">
+                    <div>
+                        <dt>50+</dt>
+                        <dd>Analytical<br />Topics</dd>
+                    </div>
+                    <div>
+                        <dt>100K+</dt>
+                        <dd>Data Points</dd>
+                    </div>
+                    <div>
+                        <dt>Live</dt>
+                        <dd>Real-time<br />Updates</dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="hero-dashboard-column">
+                <article class="dashboard-preview" aria-label="India Balance of Payments dashboard preview">
+                    <div class="dashboard-heading">
+                        <h2>India — Balance of Payments</h2>
+                        <span class="live-badge">Live Data</span>
+                    </div>
+
+                    <div class="dashboard-tabs" aria-label="Dashboard data categories">
+                        <span class="active">All</span>
+                        <span>Goods</span>
+                        <span>Services</span>
+                        <span>FDI</span>
+                    </div>
+
+                    <div class="dashboard-chart">
+                        <svg viewBox="0 0 520 330" role="img" aria-label="Exports, imports, and current account deficit trend from 2015 to 2025">
+                            <defs>
+                                <linearGradient id="deficitFill" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#ff6b6b" stop-opacity="0.22" />
+                                    <stop offset="100%" stop-color="#ff6b6b" stop-opacity="0.08" />
+                                </linearGradient>
+                            </defs>
+                            <g class="chart-grid">
+                                <line x1="8" y1="40" x2="512" y2="40" />
+                                <line x1="8" y1="110" x2="512" y2="110" />
+                                <line x1="8" y1="180" x2="512" y2="180" />
+                                <line x1="8" y1="250" x2="512" y2="250" />
+                            </g>
+                            <path class="deficit-area" d="M8 254 L64 246 L124 232 L190 217 L260 207 L330 193 L390 199 L452 211 L512 219 L512 300 L8 300 Z" />
+                            <path class="deficit-line" d="M8 254 L64 246 L124 232 L190 217 L260 207 L330 193 L390 199 L452 211 L512 219" />
+                            <polyline class="exports-line" points="8,190 64,175 124,150 190,120 260,80 330,52 390,35 452,15 512,40" />
+                            <polyline class="imports-line" points="8,148 64,125 124,112 190,75 260,40 330,20 390,30 452,5 512,25" />
+                        </svg>
+                    </div>
+
+                    <div class="chart-legend" aria-hidden="true">
+                        <span><i class="legend-dot exports"></i>Exports</span>
+                        <span><i class="legend-dot imports"></i>Imports</span>
+                        <span><i class="legend-dot deficit"></i>Current Account Deficit</span>
+                    </div>
+
+                    <div class="date-range" aria-label="Chart date range 2015 to 2025">
+                        <div class="range-track"><span></span></div>
+                        <div class="range-years">
+                            <span>2015</span><span>2017</span><span>2019</span>
+                            <span>2021</span><span>2023</span><span>2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="hero-teasers">
+                    <a class="teaser topics" href="/topics">Topics <span>→</span></a>
+                    <a class="teaser series" href="/series">Series <span>→</span></a>
+                    <a class="teaser collaborate" href="/collaborate">Collaborate <span>→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-section section-shell">
+        <p class="eyebrow">Explore live topics</p>
+        <h2>Featured economic dashboards</h2>
+        <p class="section-intro">
+            Start from curated topics, then drill into charts, commentary, source notes, and update
+            history. Each topic is backed by data packaged into Exalytics.
+        </p>
+
+        <div class="topic-card-grid">
+            <a href="/topics/india-balance-of-payments" class="topic-card blue-card">
+                <p class="topic-category">External Sector</p>
+                <h3>India — Balance of Payments</h3>
+                <strong>CAD: -$10.5B</strong>
+                <small>Latest period: Q4 2025</small>
+                <div class="topic-card-footer">
+                    <span class="status live">Live</span>
+                    <svg viewBox="0 0 180 48" aria-hidden="true"><polyline points="0,40 25,31 50,35 75,18 100,29 130,5 155,17 180,0" /></svg>
+                </div>
+            </a>
+
+            <a href="/topics" class="topic-card orange-card">
+                <p class="topic-category">Trade</p>
+                <h3>USA — Trade Deficit</h3>
+                <strong>Goods deficit: -$92.1B</strong>
+                <small>Latest period: Mar 2026</small>
+                <div class="topic-card-footer">
+                    <span class="status preview">Preview</span>
+                    <svg viewBox="0 0 180 48" aria-hidden="true"><polyline points="0,38 25,27 50,34 75,19 100,30 130,8 155,20 180,2" /></svg>
+                </div>
+            </a>
+
+            <a href="/topics" class="topic-card green-card">
+                <p class="topic-category">Reserves</p>
+                <h3>India — Forex Reserves</h3>
+                <strong>Reserves: $640B</strong>
+                <small>Latest period: May 2026</small>
+                <div class="topic-card-footer">
+                    <span class="status preview">Preview</span>
+                    <svg viewBox="0 0 180 48" aria-hidden="true"><polyline points="0,38 25,25 50,29 75,12 100,26 130,7 155,17 180,1" /></svg>
+                </div>
+            </a>
+
+            <a href="/series/inflation-cpi" class="topic-card violet-card">
+                <p class="topic-category">Prices</p>
+                <h3>Inflation Watch</h3>
+                <strong>CPI: 4.8%</strong>
+                <small>Monthly trend dashboard</small>
+                <div class="topic-card-footer">
+                    <span class="status preview">Preview</span>
+                    <svg viewBox="0 0 180 48" aria-hidden="true"><polyline points="0,36 25,30 50,32 75,15 100,24 130,7 155,19 180,2" /></svg>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="collaboration-section section-shell">
+        <div class="collaboration-copy">
+            <p class="eyebrow light">Collaborate with Exalytics</p>
+            <h2>Bring the economic idea.<br />We turn it into a publishable dashboard.</h2>
+            <p>
+                Subject matter experts can suggest a topic, point us to credible data sources, and
+                help shape the interpretation. Exalytics structures the dataset, builds charts,
+                adds notes and methodology, then publishes the topic for readers.
+            </p>
+            <a class="light-button" href="/collaborate">Propose a topic</a>
+        </div>
+
+        <ol class="collaboration-steps">
+            <li>
+                <span>1</span>
+                <div><h3>Share the idea</h3><p>An SME proposes a topic, question, or data source worth explaining.</p></div>
+            </li>
+            <li>
+                <span>2</span>
+                <div><h3>Shape the data plan</h3><p>We define indicators, units, frequency, sources, and update rules.</p></div>
+            </li>
+            <li>
+                <span>3</span>
+                <div><h3>Build and review</h3><p>Exalytics packages the dataset, charts, notes, and methodology.</p></div>
+            </li>
+            <li>
+                <span>4</span>
+                <div><h3>Publish and maintain</h3><p>The topic goes live and updates from the Azure-backed data pipeline.</p></div>
+            </li>
+        </ol>
+    </section>
+
+    <section class="how-section">
+        <div class="section-shell">
+            <div class="section-heading centered">
+                <h2>How It Works</h2>
+                <p>From trusted data websites to modeled dashboards, notes and source-backed analysis.</p>
+            </div>
+
+            <div class="source-heading">
+                <strong>Source providers</strong>
+                <span>Logo placeholders. Upload official source logos later.</span>
+            </div>
+
+            <div class="provider-grid" aria-label="Planned data providers">
+                <div><span>Upload logo</span><strong>World Bank</strong></div>
+                <div><span>Upload logo</span><strong>IMF</strong></div>
+                <div><span>Upload logo</span><strong>OECD</strong></div>
+                <div><span>Upload logo</span><strong>RBI</strong></div>
+                <div><span>Upload logo</span><strong>FRED</strong></div>
+                <div><span>Upload logo</span><strong>BEA</strong></div>
+                <div><span>Upload logo</span><strong>Eurostat</strong></div>
+                <div><span>Upload logo</span><strong>UN Data</strong></div>
+            </div>
+
+            <ol class="pipeline-grid">
+                <li>
+                    <span class="step-number blue">1</span>
+                    <div><h3>Collect</h3><p>Find credible public sources, official releases, APIs, CSVs, and SME-provided files.</p></div>
+                </li>
+                <li>
+                    <span class="step-number orange">2</span>
+                    <div><h3>Ingest</h3><p>Load source files and releases into the backend with repeatable refresh rules.</p></div>
+                </li>
+                <li>
+                    <span class="step-number violet">3</span>
+                    <div><h3>Model</h3><p>Structure topics, indicators, observations, dimensions, widgets and notes.</p></div>
+                </li>
+                <li>
+                    <span class="step-number green">4</span>
+                    <div><h3>Publish</h3><p>Expose charts, filters, analysis, methodology and latest database update time.</p></div>
+                </li>
+            </ol>
+
+            <div class="topic-model">
+                <strong>Azure-backed topic model</strong>
+                <p>Topics → Indicators → Observations → Dashboard Widgets → Notes → Refresh Runs. The public website reads latest approved data from Azure SQL.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section section-shell" id="pricing">
+        <div class="section-heading centered">
+            <h2>Simple, Transparent Pricing</h2>
+            <p>Start free. Upgrade when you need full access to custom dashboards and deeper data packaging.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <article class="pricing-card">
+                <h3>Free</h3>
+                <p class="price"><strong>$0</strong><span>/month</span></p>
+                <small>No credit card required</small>
+                <ul>
+                    <li>Access to free topics</li>
+                    <li>Recent years of data</li>
+                    <li>Basic charts and filters</li>
+                    <li>Weekly updates</li>
+                    <li class="muted">Premium topics</li>
+                    <li class="muted">Custom data packaging</li>
+                </ul>
+                <a class="secondary-button" href="/signup">Get Started</a>
+            </article>
+
+            <article class="pricing-card premium">
+                <h3>Premium</h3>
+                <p class="price"><strong>$29</strong><span>/month</span></p>
+                <small>Billed monthly, cancel anytime</small>
+                <ul>
+                    <li>All topics unlocked</li>
+                    <li>Historical data access</li>
+                    <li>Advanced interactive charts</li>
+                    <li>Real-time data updates</li>
+                    <li>Expert notes and analysis</li>
+                    <li>Data export CSV/Excel</li>
+                </ul>
+                <a class="primary-button" href="/signup">Start 14-Day Free Trial</a>
+            </article>
+        </div>
+    </section>
+
+    <section class="closing-cta">
+        <h2>Start exploring economic data today</h2>
+        <p>Join economists, journalists and SMEs who use Exalytics to stay ahead of global trends.</p>
+        <a class="light-button" href="/signup">Create Free Account</a>
+    </section>
+
+</div>

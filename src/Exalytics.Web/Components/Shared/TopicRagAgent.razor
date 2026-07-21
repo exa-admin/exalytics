@@ -1,0 +1,150 @@
+@rendermode InteractiveServer
+@inject IRagService RagService
+@inject IReadingAccessService ReadingAccess
+
+<section class="rag-agent-shell" aria-label="@($"{TopicTitle} RAG analyst")">
+    <article class="rag-agent @(CanAskQuestions ? "unlocked" : "locked")">
+        <div class="rag-main">
+            <p class="rag-eyebrow">Topic RAG analyst</p>
+            <h2>Ask deeper questions about @TopicTitle</h2>
+            <p>
+                This panel is reserved for topic-specific retrieval. Today it shows a mock answer;
+                later it will search Azure SQL vector rows, source metadata, refresh logs,
+                methodology notes, and prior analyst notes.
+            </p>
+
+            <div class="rag-question">
+                <label for="@InputId">Example question</label>
+                <div class="rag-input-row">
+                    <input id="@InputId" @bind="Question" disabled="@(!CanAskQuestions || IsLoading)" />
+                    @if (CanAskQuestions)
+                    {
+                        <button type="button" @onclick="AskAsync" disabled="@IsLoading">@(IsLoading ? "Asking..." : "Ask AI")</button>
+                    }
+                    else
+                    {
+                        <a href="/login">Sign in to ask</a>
+                    }
+                </div>
+            </div>
+
+            <div class="rag-answer">
+                <span>@AnswerLabel</span>
+                <p>@AnswerText</p>
+            </div>
+        </div>
+
+        <aside class="rag-context">
+            <h3>Retrieval context planned</h3>
+            <div class="context-chip-grid">
+                @foreach (var item in DisplayContextItems)
+                {
+                    <span>@item</span>
+                }
+            </div>
+
+            <h3>Citations preview</h3>
+            <ul>
+                @foreach (var citation in DisplayCitations)
+                {
+                    <li><strong>@citation.Kind:</strong> @citation.Detail</li>
+                }
+            </ul>
+        </aside>
+    </article>
+</section>
+
+@code {
+    [Parameter]
+    public string TopicTitle { get; set; } = "this topic";
+
+    [Parameter]
+    public string TopicSlug { get; set; } = "topic";
+
+    [Parameter]
+    public string SampleQuestion { get; set; } = "Why did this indicator change in the latest period?";
+
+    private AccessState Access { get; set; } = new(AccessLevel.GuestPreview, false, false, 0, 5);
+
+    private RagAnswer? Answer { get; set; }
+
+    private bool IsLoading { get; set; }
+
+    private bool CanAskQuestions => Access.IsUnlocked;
+
+    private string Question { get; set; } = "";
+
+    private string LoadedTopicSlug { get; set; } = "";
+
+    private string InputId => $"rag-question-{TopicSlug}";
+
+    private string AnswerLabel
+    {
+        get
+        {
+            if (IsLoading)
+            {
+                return "Searching retrieval context";
+            }
+
+            return CanAskQuestions ? $"Service answer • {Answer?.Confidence ?? "Demo"}" : "Locked answer preview";
+        }
+    }
+
+    private string AnswerText => CanAskQuestions
+        ? Answer?.Answer ?? "Ask a question to search this topic's future Azure SQL retrieval context."
+        : "Sign in to ask follow-up questions. Future answers will be grounded in approved Azure SQL vector chunks, source notes, refresh logs, methodology, and prior analyst notes.";
+
+    private IReadOnlyList<string> DisplayContextItems => Answer?.ContextItems ?? LockedContextItems;
+
+    private IReadOnlyList<RagCitation> DisplayCitations => Answer?.Citations ?? LockedCitations;
+
+    private static readonly string[] LockedContextItems =
+    [
+        "TopicVectorChunks",
+        "Observations",
+        "Source metadata",
+        "Refresh runs",
+        "Prior analyst notes"
+    ];
+
+    private static readonly RagCitation[] LockedCitations =
+    [
+        new("Access", "Sign in to retrieve topic-specific citations")
+    ];
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (LoadedTopicSlug != TopicSlug || string.IsNullOrWhiteSpace(Question))
+        {
+            LoadedTopicSlug = TopicSlug;
+            Question = SampleQuestion;
+            Answer = null;
+        }
+
+        Access = ReadingAccess.Evaluate("topic", TopicSlug);
+
+        if (CanAskQuestions && Answer is null)
+        {
+            await AskAsync();
+        }
+    }
+
+    private async Task AskAsync()
+    {
+        if (!CanAskQuestions || string.IsNullOrWhiteSpace(Question))
+        {
+            return;
+        }
+
+        IsLoading = true;
+        try
+        {
+            Answer = await RagService.AskAsync(TopicSlug, Question);
+        }
+        finally
+        {
+            IsLoading = false;
+        }
+    }
+}

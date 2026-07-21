@@ -1,0 +1,176 @@
+@page "/collaborate"
+
+<PageTitle>Collaborate — Exalytics</PageTitle>
+
+<div class="collaborate-page">
+    <section class="collab-hero">
+        <div class="collab-shell hero-grid">
+            <div class="hero-copy">
+                <p class="collab-eyebrow">Collaborate with Exalytics</p>
+                <h1>Bring the economic idea. We will help turn it into a data product.</h1>
+                <p>
+                    Analysts, economists, journalists, researchers, and subject matter experts can
+                    suggest new topics or individual series. You can also request permission and
+                    support to use Exalytics charts in articles, blogs, newsletters, and research pages.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="primary-button" href="#proposal">Suggest topic or series</a>
+                    <a class="secondary-button" href="#reuse">Use charts in your work</a>
+                </div>
+            </div>
+
+            <aside class="hero-card">
+                <span>Good fits</span>
+                <ul>
+                    <li>Balance of payments and trade dashboards</li>
+                    <li>Inflation, labor, GDP, FX, rates, and commodity series</li>
+                    <li>Journalistic explainers that need reliable charts</li>
+                    <li>SME-reviewed methodology and source notes</li>
+                </ul>
+            </aside>
+        </div>
+    </section>
+
+    <section class="collab-shell pathways-section">
+        <div class="section-heading">
+            <p class="collab-eyebrow">Two ways to collaborate</p>
+            <h2>Suggest new data work, or reuse published charts.</h2>
+            <p>
+                Topics are deeper analytical packages. Series are simpler chart-first indicators.
+                Chart reuse helps writers embed or reference visuals with clear attribution.
+            </p>
+        </div>
+
+        <div class="pathway-grid">
+            <article class="pathway-card blue">
+                <span class="path-number">1</span>
+                <h3>Suggest a topic</h3>
+                <p>
+                    Propose a full dashboard idea with multiple indicators, charts, explanations,
+                    methodology, and analyst notes.
+                </p>
+                <strong>Example: India Balance of Payments</strong>
+            </article>
+
+            <article class="pathway-card orange">
+                <span class="path-number">2</span>
+                <h3>Suggest a series</h3>
+                <p>
+                    Recommend one economic indicator that deserves a simple trend chart and source
+                    context.
+                </p>
+                <strong>Example: JOLTS job openings</strong>
+            </article>
+
+            <article class="pathway-card green" id="reuse">
+                <span class="path-number">3</span>
+                <h3>Use our charts</h3>
+                <p>
+                    Request chart reuse for a journalist page, blog, newsletter, classroom note,
+                    or research explainer.
+                </p>
+                <strong>Includes attribution and source context</strong>
+            </article>
+        </div>
+    </section>
+
+    <section class="collab-band">
+        <div class="collab-shell workflow-grid">
+            <div>
+                <p class="collab-eyebrow light">How collaboration works</p>
+                <h2>From idea to published dashboard</h2>
+                <p>
+                    We keep the process structured so the final page is useful, credible, and
+                    maintainable as new data becomes available.
+                </p>
+            </div>
+
+            <ol class="workflow-steps">
+                <li>
+                    <span>1</span>
+                    <div>
+                        <h3>Submit the idea</h3>
+                        <p>Share the question, country, source, and why the topic or series matters.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>2</span>
+                    <div>
+                        <h3>Define the data plan</h3>
+                        <p>We agree on indicators, units, frequency, update cadence, and source metadata.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>3</span>
+                    <div>
+                        <h3>Build the chart package</h3>
+                        <p>Exalytics creates the data model, charts, notes, and dashboard layout.</p>
+                    </div>
+                </li>
+                <li>
+                    <span>4</span>
+                    <div>
+                        <h3>Review and publish</h3>
+                        <p>Human review checks the interpretation before publishing or enabling reuse.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="collab-shell proposal-section" id="proposal">
+        <div class="proposal-copy">
+            <p class="collab-eyebrow">Proposal intake</p>
+            <h2>Tell us what you want to build together.</h2>
+            <p>
+                This is the front-end placeholder for our future collaboration intake. When we add
+                backend support, this form can submit to a secured API and route requests into the
+                CMS/admin review workflow.
+            </p>
+
+            <div class="reuse-note">
+                <h3>For chart reuse</h3>
+                <p>
+                    Include the chart or series name, your publication/blog URL, expected use,
+                    and whether you need an image, embed, or source citation block.
+                </p>
+            </div>
+        </div>
+
+        <form class="proposal-form" aria-label="Collaboration proposal form">
+            <label>
+                Your name
+                <input type="text" placeholder="Economist, analyst, journalist..." />
+            </label>
+
+            <label>
+                Email
+                <input type="email" placeholder="you@example.com" />
+            </label>
+
+            <label>
+                Collaboration type
+                <select>
+                    <option>Suggest a topic dashboard</option>
+                    <option>Suggest a series</option>
+                    <option>Use charts in my article or blog</option>
+                    <option>Methodology or source review</option>
+                </select>
+            </label>
+
+            <label>
+                Topic, series, or chart name
+                <input type="text" placeholder="Inflation CPI, JOLTS, India BoP..." />
+            </label>
+
+            <label class="full">
+                Tell us the idea
+                <textarea rows="6" placeholder="What should this explain? Which source should we use? Where will the chart be published?"></textarea>
+            </label>
+
+            <button type="button">Submit proposal</button>
+            <p class="form-note">Form submission will be wired when the backend collaboration workflow is added.</p>
+        </form>
+    </section>
+</div>

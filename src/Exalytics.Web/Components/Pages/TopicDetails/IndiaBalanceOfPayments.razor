@@ -1,0 +1,323 @@
+@page "/topics/india-balance-of-payments"
+
+<PageTitle>India Balance of Payments — Exalytics</PageTitle>
+
+<div class="topic-detail-page">
+    <section class="detail-shell metric-grid" aria-label="Latest Balance of Payments metrics">
+        @foreach (var metric in Metrics)
+        {
+            <article class="metric-card @metric.Tone">
+                <h2>@metric.Label</h2>
+                <strong>@metric.Value</strong>
+                <span class="@metric.MetaTone">@metric.Meta</span>
+            </article>
+        }
+    </section>
+
+    <section class="detail-shell dimensions-card" aria-label="Explore dimensions">
+        <h2>Explore dimensions</h2>
+
+        <div class="dimension-grid">
+            <div class="dimension-block date-range-block">
+                <h3>Date range</h3>
+                <div class="date-slider" aria-label="Date range 2015 to 2025">
+                    <span>2015</span>
+                    <div class="slider-track">
+                        <i class="slider-thumb start"></i>
+                        <i class="slider-fill"></i>
+                        <i class="slider-thumb end"></i>
+                    </div>
+                    <span>2025</span>
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <h3>Component</h3>
+                <div class="pill-group">
+                    @foreach (var pill in ComponentFilters)
+                    {
+                        <span class="filter-pill @pill.Tone">@pill.Label</span>
+                    }
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <h3>Unit</h3>
+                <div class="pill-group unit-pills">
+                    @foreach (var pill in UnitFilters)
+                    {
+                        <span class="filter-pill @pill.Tone">@pill.Label</span>
+                    }
+                </div>
+            </div>
+
+            <div class="dimension-block">
+                <h3>Frequency / View</h3>
+                <div class="pill-group view-pills">
+                    @foreach (var pill in ViewFilters)
+                    {
+                        <span class="filter-pill @pill.Tone">@pill.Label</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="detail-shell dashboard-grid">
+        <article class="chart-card">
+            <header>
+                <h2>Current account and external sector flows</h2>
+                <p>Filtered by All components • Balance view • USD billions</p>
+            </header>
+
+            <div class="chart-wrap">
+                <svg viewBox="0 0 780 420" role="img" aria-label="Exports, imports, and current account deficit trend from 2015 to 2025">
+                    <defs>
+                        <linearGradient id="deficitAreaFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ff4646" stop-opacity="0.16" />
+                            <stop offset="100%" stop-color="#ff4646" stop-opacity="0.02" />
+                        </linearGradient>
+                    </defs>
+
+                    <g class="chart-grid-lines">
+                        <line x1="18" y1="92" x2="762" y2="92" />
+                        <line x1="18" y1="174" x2="762" y2="174" />
+                        <line x1="18" y1="256" x2="762" y2="256" />
+                        <line x1="18" y1="338" x2="762" y2="338" />
+                    </g>
+
+                    <path class="deficit-area" d="M32 324 L142 316 L252 318 L362 280 L472 266 L582 238 L692 254 L756 236 L756 392 L32 392 Z" />
+                    <polyline class="exports-line" points="32,326 142,304 252,250 362,196 472,148 582,104 692,74 756,58" />
+                    <polyline class="imports-line" points="32,310 142,282 252,224 362,166 472,108 582,72 692,38 756,22" />
+                    <polyline class="deficit-line" points="32,324 142,316 252,318 362,280 472,266 582,238 692,254 756,236" />
+                </svg>
+            </div>
+
+            <div class="chart-legend">
+                <span><i class="exports"></i>Exports</span>
+                <span><i class="imports"></i>Imports</span>
+                <span><i class="deficit"></i>Current account deficit</span>
+            </div>
+        </article>
+
+        <aside class="refresh-card">
+            <h2>What changed this refresh?</h2>
+            <a href="/topics/india-balance-of-payments">Latest refresh run</a>
+            <p>
+                The current account deficit narrowed as the services surplus offset a wider goods
+                deficit. Imports rose faster than goods exports, but services receipts remained resilient.
+            </p>
+
+            <div class="rag-card">
+                <h3>RAG context used</h3>
+                <div class="rag-chip-grid">
+                    @foreach (var item in RagContextItems)
+                    {
+                        <span>@item</span>
+                    }
+                </div>
+            </div>
+
+            <p class="confidence">
+                AI draft confidence: <strong>High</strong> • Review required before publish
+            </p>
+        </aside>
+    </section>
+
+    <TopicRagAgent
+        TopicTitle="India Balance of Payments"
+        TopicSlug="india-balance-of-payments"
+        SampleQuestion="@RagSampleQuestion" />
+
+    <AccessPreviewGate
+        ContentKind="topic"
+        ContentName="India Balance of Payments"
+        ContentSlug="india-balance-of-payments"
+        LockedTitle="Sign in to read the complete Balance of Payments topic"
+        LockedMessage="Guests can preview the latest metrics and main chart. A free account unlocks the deeper widgets, AI analyst note, RAG question panel, and five topic or series reads every month."
+        LockedItems="TopicLockedItems">
+        <section class="detail-shell supporting-widgets" aria-label="Supporting Balance of Payments widgets">
+            <article class="support-card balance-card">
+                <h2>Goods vs services balance</h2>
+                <div class="mini-bars" aria-label="Goods deficit and services surplus bar chart">
+                    @foreach (var group in BalanceBars)
+                    {
+                        <div class="mini-bar-group">
+                            <span class="mini-bar services" style="height: @group.ServicesHeight"></span>
+                            <span class="mini-bar goods" style="height: @group.GoodsHeight"></span>
+                        </div>
+                    }
+                </div>
+                <p>Blue: services surplus • Orange: goods deficit</p>
+            </article>
+
+            <article class="support-card contribution-card">
+                <h2>Component contribution</h2>
+                <div class="contribution-list">
+                    @foreach (var contribution in ComponentContributions)
+                    {
+                        <div class="contribution-row @contribution.Tone">
+                            <span>@contribution.Label</span>
+                            <div class="contribution-track">
+                                <i style="width: @contribution.Width"></i>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </article>
+
+            <article class="support-card observations-card">
+                <h2>Latest observations</h2>
+                <div class="observation-list">
+                    @foreach (var observation in LatestObservations)
+                    {
+                        <div>
+                            <span>@observation.Label</span>
+                            <strong class="@observation.Tone">@observation.Value</strong>
+                        </div>
+                    }
+                </div>
+            </article>
+        </section>
+
+        <section class="analyst-note-section">
+            <div class="detail-shell">
+                <p class="note-eyebrow">AI analyst note</p>
+                <h2><span>Generated analysis that extends after every refresh</span></h2>
+                <p class="note-intro">
+                    This note is produced from the topic dataset, source metadata, methodology,
+                    refresh run and prior notes. New data creates a new version, so the analysis grows
+                    like a topic-specific blog.
+                </p>
+
+                <div class="note-grid">
+                    <article class="note-card">
+                        <h3>India BoP: services strength keeps the current account manageable</h3>
+                        <p class="note-meta">
+                            Draft generated after refresh run #2026-05-30-004 • Uses Q4 2025 data snapshot • Human review pending
+                        </p>
+                        <p>
+                            The latest refresh suggests India&apos;s external position remains cushioned by
+                            services exports even as goods imports continue to pressure the trade balance.
+                            The current account deficit narrowed relative to the prior quarter, but the
+                            composition matters: the services surplus is doing most of the stabilizing work.
+                        </p>
+                        <p>
+                            If goods import growth remains elevated, the next refresh should watch whether
+                            services receipts and transfers continue to offset the wider merchandise gap.
+                            The note should remain unpublished until an editor reviews the source snapshot,
+                            methodology, and generated interpretation.
+                        </p>
+                    </article>
+
+                    <aside class="timeline-card">
+                        <h3>Analysis timeline</h3>
+                        <ol>
+                            @foreach (var item in Timeline)
+                            {
+                                <li class="@item.Tone">
+                                    <span></span>
+                                    <strong>@item.Label</strong>
+                                </li>
+                            }
+                        </ol>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </AccessPreviewGate>
+</div>
+
+@code {
+    // Later these records should be hydrated from Azure SQL via EF Core:
+    // Topic -> DashboardWidgets -> IndicatorCodes -> Observations -> TopicNotes/DataRefreshRuns.
+    private static readonly MetricCard[] Metrics =
+    [
+        new("Current Account", "-$10.5B", "Q4 2025, revised", "red", "muted"),
+        new("Goods Exports", "$118.2B", "+3.1% q/q", "blue", "positive"),
+        new("Goods Imports", "$168.4B", "+4.8% q/q", "orange", "warning"),
+        new("Services Net", "+$38.7B", "surplus widened", "green", "positive"),
+        new("CAD / GDP", "1.2%", "within watch range", "violet", "muted")
+    ];
+
+    private static readonly FilterPill[] ComponentFilters =
+    [
+        new("All", "active-blue"),
+        new("Goods", ""),
+        new("Services", ""),
+        new("Income", ""),
+        new("Transfers", "")
+    ];
+
+    private static readonly FilterPill[] UnitFilters =
+    [
+        new("USD", "active-blue"),
+        new("INR", ""),
+        new("% GDP", "")
+    ];
+
+    private static readonly FilterPill[] ViewFilters =
+    [
+        new("Quarterly", "active-green"),
+        new("Flow", ""),
+        new("Balance", "active-violet")
+    ];
+
+    private static readonly string[] RagContextItems =
+    [
+        "8 indicators",
+        "44 observations",
+        "3 source notes",
+        "1 refresh run",
+        "2 prior analyst notes"
+    ];
+
+    private const string RagSampleQuestion = "Why was India Balance of Payments weak in Oct 2025?";
+
+    private static readonly string[] TopicLockedItems =
+    [
+        "Supporting balance widgets and latest observation tables",
+        "Complete AI analyst note and note timeline",
+        "Topic RAG questions backed by future Azure SQL vector search",
+        "Five free topic or series detail reads each month"
+    ];
+
+    private static readonly BalanceBar[] BalanceBars =
+    [
+        new("38%", "55%"),
+        new("62%", "74%"),
+        new("66%", "82%"),
+        new("72%", "92%")
+    ];
+
+    private static readonly ContributionRow[] ComponentContributions =
+    [
+        new("Goods", "82%", "goods"),
+        new("Services", "68%", "services"),
+        new("Income", "34%", "income"),
+        new("Transfers", "48%", "transfers")
+    ];
+
+    private static readonly ObservationRow[] LatestObservations =
+    [
+        new("Current account", "-10.5B", ""),
+        new("Goods exports", "118.2B", ""),
+        new("Goods imports", "168.4B", ""),
+        new("Services net", "+38.7B", "positive"),
+        new("CAD / GDP", "1.2%", "")
+    ];
+
+    private static readonly TimelineItem[] Timeline =
+    [
+        new("Q4 2025 refresh — draft created", "active"),
+        new("Q3 2025 note — services surplus widened", ""),
+        new("Q2 2025 note — imports accelerated", "")
+    ];
+
+    private sealed record MetricCard(string Label, string Value, string Meta, string Tone, string MetaTone);
+    private sealed record FilterPill(string Label, string Tone);
+    private sealed record BalanceBar(string ServicesHeight, string GoodsHeight);
+    private sealed record ContributionRow(string Label, string Width, string Tone);
+    private sealed record ObservationRow(string Label, string Value, string Tone);
+    private sealed record TimelineItem(string Label, string Tone);
+}

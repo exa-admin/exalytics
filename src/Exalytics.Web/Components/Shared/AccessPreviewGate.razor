@@ -1,0 +1,118 @@
+@inject IReadingAccessService ReadingAccess
+
+<section class="access-gate @ContentKind" aria-label="@($"{ContentName} access gate")">
+    @if (Access.IsUnlocked)
+    {
+        <div class="access-status">
+            <span>@UnlockedEyebrow</span>
+            <strong>@RemainingReadsLabel</strong>
+        </div>
+
+        @ChildContent
+    }
+    else
+    {
+        <div class="access-lock">
+            <div class="lock-copy">
+                <p class="access-eyebrow">@LockedEyebrow</p>
+                <h2>@LockedTitle</h2>
+                <p>@LockedMessage</p>
+
+                <div class="usage-meter" aria-label="Free monthly read usage">
+                    <div>
+                        <span>Free monthly reads</span>
+                        <strong>@Access.ReadsUsed / @Access.ReadLimit used</strong>
+                    </div>
+                    <div class="meter-track">
+                        <i style="width: @UsagePercent"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lock-panel">
+                <h3>Sign in unlocks</h3>
+                <ul>
+                    @foreach (var item in LockedItems)
+                    {
+                        <li>@item</li>
+                    }
+                </ul>
+
+                <div class="lock-actions">
+                    <a class="primary-lock-action" href="/login">Sign in to continue</a>
+                    <a class="secondary-lock-action" href="/signup">Create free account</a>
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string ContentName { get; set; } = "this page";
+
+    [Parameter]
+    public string ContentKind { get; set; } = "topic";
+
+    [Parameter]
+    public string ContentSlug { get; set; } = "";
+
+    [Parameter]
+    public string LockedTitle { get; set; } = "Sign in to read the complete page";
+
+    [Parameter]
+    public string LockedMessage { get; set; } = "Guests can preview the top of this analysis. A free account unlocks the full topic or series detail page.";
+
+    [Parameter]
+    public IReadOnlyList<string> LockedItems { get; set; } =
+    [
+        "Complete chart context and supporting widgets",
+        "AI analyst notes and refresh history",
+        "Five free topic or series reads every month"
+    ];
+
+    private AccessState Access { get; set; } = new(AccessLevel.GuestPreview, false, false, 0, 5);
+
+    protected override void OnParametersSet()
+    {
+        Access = ReadingAccess.Evaluate(ContentKind, SlugForAccess);
+    }
+
+    private string SlugForAccess => string.IsNullOrWhiteSpace(ContentSlug)
+        ? ContentName.Trim().ToLowerInvariant().Replace(' ', '-')
+        : ContentSlug;
+
+    private string LockedEyebrow => Access.Level == AccessLevel.LimitReached ? "Free monthly limit" : "Guest preview";
+
+    private string UnlockedEyebrow => Access.IsPremium ? "Full access" : "Free account access";
+
+    private string RemainingReadsLabel
+    {
+        get
+        {
+            if (Access.IsPremium)
+            {
+                return "Unlimited reads available";
+            }
+
+            return $"{Access.ReadsRemaining} free reads remaining this month";
+        }
+    }
+
+    private string UsagePercent
+    {
+        get
+        {
+            if (Access.ReadLimit <= 0)
+            {
+                return "0%";
+            }
+
+            var percent = Math.Clamp((double)Access.ReadsUsed / Access.ReadLimit * 100, 0, 100);
+            return $"{percent:0}%";
+        }
+    }
+}

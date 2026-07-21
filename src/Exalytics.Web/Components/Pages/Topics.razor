@@ -1,0 +1,167 @@
+@page "/topics"
+
+<PageTitle>Topics — Exalytics</PageTitle>
+
+<div class="topics-page">
+    <section class="topics-hero">
+        <div class="topics-shell">
+            <p class="topics-eyebrow">Topics</p>
+            <h1>Explore economic dashboards</h1>
+            <p class="topics-intro">
+                Browse curated macroeconomic topics packaged with charts, latest database updates,
+                analysis notes, and source methodology.
+            </p>
+
+            <div class="topics-search-row">
+                <div class="topics-search" aria-label="Search topics">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                    </svg>
+                    <span>Search Balance of Payments, trade deficit, inflation, reserves...</span>
+                </div>
+
+                <a class="suggest-button" href="/collaborate">Suggest a Topic</a>
+            </div>
+
+            <div class="topic-chips" aria-label="Topic categories">
+                <span class="active">All</span>
+                <span>External Sector</span>
+                <span>Trade</span>
+                <span>Inflation</span>
+                <span>Growth</span>
+                <span>Reserves</span>
+                <span>Fiscal</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="topics-body topics-shell">
+        <aside class="topics-filter" aria-label="Topic filters">
+            <h2>Filter topics</h2>
+
+            <div class="filter-group">
+                <h3>Country or region</h3>
+                <label><span class="check is-checked">@CheckMark</span>India</label>
+                <label><span class="check is-checked">@CheckMark</span>United States</label>
+                <label><span class="check"></span>United Kingdom</label>
+                <label><span class="check"></span>Euro Area</label>
+                <label><span class="check"></span>Global</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Frequency</h3>
+                <label><span class="check"></span>Weekly</label>
+                <label><span class="check is-checked">@CheckMark</span>Monthly</label>
+                <label><span class="check is-checked">@CheckMark</span>Quarterly</label>
+                <label><span class="check"></span>Annual</label>
+            </div>
+
+            <div class="filter-group last">
+                <h3>Data status</h3>
+                <div class="status-pills">
+                    <span class="live">Live data</span>
+                    <span>Preview</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="topic-list-grid">
+            <a href="/topics/india-balance-of-payments" class="topic-list-card blue">
+                <div class="topic-list-meta">
+                    <span>External Sector • Quarterly</span>
+                    <strong class="live">Live Data</strong>
+                </div>
+                <h2>India — Balance of Payments</h2>
+                <p class="topic-value">CAD: -$10.5B</p>
+                <p class="topic-updated">Updated today</p>
+                <svg viewBox="0 0 320 56" aria-hidden="true">
+                    <polyline points="0,48 53,38 106,42 160,24 213,30 266,12 320,18"></polyline>
+                </svg>
+            </a>
+
+            <a href="/topics" class="topic-list-card orange">
+                <div class="topic-list-meta">
+                    <span>Trade • Monthly</span>
+                    <strong>Preview</strong>
+                </div>
+                <h2>USA — Trade Deficit</h2>
+                <p class="topic-value">Goods deficit: -$92.1B</p>
+                <p class="topic-updated">Preview build</p>
+                <svg viewBox="0 0 320 56" aria-hidden="true">
+                    <polyline points="0,46 53,34 106,40 160,26 213,32 266,14 320,20"></polyline>
+                </svg>
+            </a>
+
+            <a href="/topics" class="topic-list-card green">
+                <div class="topic-list-meta">
+                    <span>Reserves • Weekly</span>
+                    <strong>Preview</strong>
+                </div>
+                <h2>India — Forex Reserves</h2>
+                <p class="topic-value">Reserves: $640B</p>
+                <p class="topic-updated">Preview build</p>
+                <svg viewBox="0 0 320 56" aria-hidden="true">
+                    <polyline points="0,50 53,42 106,46 160,28 213,34 266,16 320,22"></polyline>
+                </svg>
+            </a>
+
+            <a href="/topics" class="topic-list-card violet">
+                <div class="topic-list-meta">
+                    <span>Prices • Monthly</span>
+                    <strong>Draft</strong>
+                </div>
+                <h2>Inflation Watch</h2>
+                <p class="topic-value">CPI: 4.8%</p>
+                <p class="topic-updated">Methodology draft</p>
+                <svg viewBox="0 0 320 56" aria-hidden="true">
+                    <polyline points="0,42 53,36 106,40 160,30 213,36 266,18 320,24"></polyline>
+                </svg>
+            </a>
+
+            <a href="/topics" class="topic-list-card teal">
+                <div class="topic-list-meta">
+                    <span>Growth • Quarterly</span>
+                    <strong>Planned</strong>
+                </div>
+                <h2>GDP Growth Tracker</h2>
+                <p class="topic-value">GDP: 6.7%</p>
+                <p class="topic-updated">Dataset planned</p>
+                <svg viewBox="0 0 320 56" aria-hidden="true">
+                    <polyline points="0,46 53,40 106,42 160,26 213,32 266,18 320,22"></polyline>
+                </svg>
+            </a>
+
+            <a href="/topics" class="topic-list-card red">
+                <div class="topic-list-meta">
+                    <span>Fiscal • Monthly</span>
+                    <strong>Collaborate</strong>
+                </div>
+                <h2>Fiscal Deficit Monitor</h2>
+                <p class="topic-value">Deficit vs target</p>
+                <p class="topic-updated">SME wanted</p>
+                <svg viewBox="0 0 320 56" aria-hidden="true">
+                    <polyline points="0,40 53,34 106,42 160,28 213,36 266,20 320,26"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="expert-band topics-shell">
+        <div>
+            <h2>Have an expert topic idea?</h2>
+            <p>
+                Share the question, data source, or methodology. We can package it into an
+                Exalytics dashboard and publish it with clear source notes.
+            </p>
+        </div>
+
+        <a class="expert-button" href="/collaborate">Collaborate</a>
+    </section>
+</div>
+
+@code {
+    private static readonly RenderFragment CheckMark = @<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" aria-hidden="true">
+        <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>;
+}

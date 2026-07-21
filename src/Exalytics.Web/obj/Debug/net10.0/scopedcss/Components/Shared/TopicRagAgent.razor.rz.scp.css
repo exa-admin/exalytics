@@ -1,0 +1,209 @@
+.rag-agent-shell[b-iq5s665w6c] {
+    max-width: var(--maxw);
+    margin: 28px auto 0;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.rag-agent[b-iq5s665w6c] {
+    display: grid;
+    grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+    gap: 24px;
+    padding: 30px;
+    border: 1px solid #dfeaf6;
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(29, 161, 242, 0.14), transparent 30%),
+        radial-gradient(circle at 92% 8%, rgba(139, 92, 246, 0.12), transparent 28%),
+        #ffffff;
+}
+
+.rag-agent.locked[b-iq5s665w6c] {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(29, 161, 242, 0.11), transparent 30%),
+        linear-gradient(135deg, #ffffff 0%, #f7fbff 100%);
+}
+
+.rag-eyebrow[b-iq5s665w6c] {
+    margin: 0 0 12px;
+    color: #169df2;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.rag-main h2[b-iq5s665w6c] {
+    max-width: 760px;
+    margin: 0;
+    color: #17375e;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+.rag-main > p[b-iq5s665w6c] {
+    max-width: 760px;
+    margin: 14px 0 0;
+    color: #5d6b82;
+    font-size: 16px;
+    line-height: 1.62;
+}
+
+.rag-question[b-iq5s665w6c] {
+    margin-top: 24px;
+}
+
+.rag-question label[b-iq5s665w6c] {
+    display: block;
+    margin-bottom: 9px;
+    color: #7d8aa0;
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.rag-input-row[b-iq5s665w6c] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+}
+
+.rag-input-row input[b-iq5s665w6c] {
+    min-height: 50px;
+    width: 100%;
+    padding: 0 18px;
+    border: 1px solid #dfeaf6;
+    border-radius: 999px;
+    color: #17375e;
+    background: #f8fbff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.rag-input-row input:disabled[b-iq5s665w6c] {
+    color: #7d8aa0;
+}
+
+.rag-input-row button[b-iq5s665w6c],
+.rag-input-row a[b-iq5s665w6c] {
+    display: inline-flex;
+    min-height: 50px;
+    padding: 0 22px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 999px;
+    color: #ffffff;
+    background: #1da1f2;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.rag-answer[b-iq5s665w6c] {
+    margin-top: 18px;
+    padding: 18px 20px;
+    border: 1px solid #e1ebf6;
+    border-radius: 16px;
+    background: #f8fbff;
+}
+
+.rag-answer span[b-iq5s665w6c] {
+    display: block;
+    margin-bottom: 8px;
+    color: #1fb981;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.rag-answer p[b-iq5s665w6c] {
+    margin: 0;
+    color: #536278;
+    font-size: 15px;
+    line-height: 1.58;
+}
+
+.rag-context[b-iq5s665w6c] {
+    padding: 22px;
+    border: 1px solid #e1ebf6;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.82);
+}
+
+.rag-context h3[b-iq5s665w6c] {
+    margin: 0 0 14px;
+    color: #17375e;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.rag-context h3:not(:first-child)[b-iq5s665w6c] {
+    margin-top: 22px;
+}
+
+.context-chip-grid[b-iq5s665w6c] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.context-chip-grid span[b-iq5s665w6c] {
+    display: inline-flex;
+    min-height: 32px;
+    padding: 0 13px;
+    align-items: center;
+    border: 1px solid #dce8f5;
+    border-radius: 999px;
+    color: #536278;
+    background: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.rag-context ul[b-iq5s665w6c] {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.rag-context li[b-iq5s665w6c] {
+    color: #687891;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.rag-context li[b-iq5s665w6c]::before {
+    color: #169df2;
+    content: "↳ ";
+    font-weight: 900;
+}
+
+@media (max-width: 960px) {
+    .rag-agent[b-iq5s665w6c] {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .rag-agent-shell[b-iq5s665w6c] {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .rag-agent[b-iq5s665w6c] {
+        padding: 24px 20px;
+    }
+
+    .rag-input-row[b-iq5s665w6c] {
+        grid-template-columns: 1fr;
+    }
+}

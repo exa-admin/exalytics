@@ -1,0 +1,230 @@
+.site[b-3b8beirats] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main[b-3b8beirats] {
+    flex: 1;
+}
+
+.navbar[b-3b8beirats] {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--hair);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+}
+
+.nav-inner[b-3b8beirats] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 8px 40px;
+}
+
+.brand[b-3b8beirats] {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 210px;
+}
+
+.logo-crop[b-3b8beirats] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f1f8ff;
+}
+
+.logo-mark[b-3b8beirats] {
+    display: block;
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+}
+
+.wordmark[b-3b8beirats] {
+    color: var(--ink);
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.ai[b-3b8beirats] {
+    color: var(--blue);
+}
+
+.nav-center[b-3b8beirats] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(26px, 3.4vw, 46px);
+}
+
+.nav-item[b-3b8beirats] {
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 700;
+    transition: color 160ms ease;
+}
+
+.nav-item:hover[b-3b8beirats],
+.nav-item:focus-visible[b-3b8beirats],
+.nav-item.active[b-3b8beirats] {
+    color: var(--ink);
+}
+
+.nav-right[b-3b8beirats] {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    white-space: nowrap;
+}
+
+.nav-login[b-3b8beirats] {
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.btn-pill[b-3b8beirats] {
+    min-height: 50px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.footer[b-3b8beirats] {
+    padding: 56px 40px 30px;
+    background: var(--footer);
+}
+
+.footer-grid[b-3b8beirats] {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+.footer-brand[b-3b8beirats] {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.footer-blurb[b-3b8beirats] {
+    max-width: 280px;
+    margin: 0;
+    color: #8ea0bb;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-h[b-3b8beirats] {
+    margin-bottom: 16px;
+    color: #5d7290;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.footer-links[b-3b8beirats] {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.footer-links a[b-3b8beirats] {
+    color: #b3c1d4;
+    font-size: 14px;
+    transition: color 160ms ease;
+}
+
+.footer-links a:hover[b-3b8beirats],
+.footer-links a:focus-visible[b-3b8beirats] {
+    color: #ffffff;
+}
+
+.footer-copy[b-3b8beirats] {
+    max-width: var(--maxw);
+    margin: 36px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid var(--footer-div);
+    color: #6c7f9c;
+    font-size: 13px;
+}
+
+@media (max-width: 980px) {
+    .nav-inner[b-3b8beirats] {
+        flex-wrap: wrap;
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .brand[b-3b8beirats] {
+        min-width: 0;
+    }
+
+    .nav-center[b-3b8beirats] {
+        order: 3;
+        width: 100%;
+    }
+
+    .footer-grid[b-3b8beirats] {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .nav-inner[b-3b8beirats] {
+        justify-content: center;
+        gap: 14px;
+        padding: 10px 18px 16px;
+    }
+
+    .brand[b-3b8beirats] {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .nav-center[b-3b8beirats] {
+        justify-content: flex-start;
+        gap: 22px;
+        overflow-x: auto;
+        padding: 6px 0 2px;
+    }
+
+    .nav-right[b-3b8beirats] {
+        gap: 14px;
+    }
+
+    .btn-pill[b-3b8beirats] {
+        min-height: 44px;
+        padding: 0 16px;
+        font-size: 14px;
+    }
+
+    .footer[b-3b8beirats] {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .footer-grid[b-3b8beirats] {
+        grid-template-columns: 1fr;
+        gap: 34px;
+    }
+}

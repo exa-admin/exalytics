@@ -1,0 +1,4 @@
+display_name: Data Analytics Platform
+short_description: Build the Microsoft-native analytics blog and dashboard platform.
+default_prompt: Use this skill to plan, design, and build the Microsoft-native data analytics web application with topic dashboards, CMS notes, Azure SQL data, Blazor, ASP.NET Core, and Azure hosting.
+
